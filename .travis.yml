@@ -5,7 +5,6 @@ env:
 - SPRING_PROFILES_ACTIVE=ci
 
 services:
-- postgresql
 
 jdk:
 - oraclejdk8
