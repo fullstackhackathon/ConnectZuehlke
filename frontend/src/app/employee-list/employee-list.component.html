@@ -1,0 +1,10 @@
+<h2>A list of all Zühlke Employees</h2>
+
+<input [(ngModel)]="searchQuery" placeholder="Type something to search">
+
+
+<ul>
+  <li *ngFor="let employee of employees | search:'firstName,lastName':searchQuery">
+    {{employee.firstName}} {{employee.lastName}}
+  </li>
+</ul>
