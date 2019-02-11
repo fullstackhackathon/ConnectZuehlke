@@ -4,6 +4,8 @@ import {environment} from '../environments/environment';
 import {Observable, of} from 'rxjs';
 import {catchError} from 'rxjs/operators';
 import {HttpClient} from '@angular/common/http';
+import {Employee} from './domain/Employee';
+
 
 const API_URL = environment.apiUrl;
 
