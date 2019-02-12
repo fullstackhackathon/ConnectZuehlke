@@ -28,5 +28,6 @@ before_script:
 
 script:
 - ./gradlew test
+- ./gradlew lintClient
 - ./gradlew testClientCi
 - ./gradlew testE2EClientCi

@@ -46,9 +46,19 @@ task testE2EClientCi(type: NpmTask){
     args = ['run', 'ci-e2e']
 }
 
+task lintClient(type: NpmTask){
+    group = 'Client'
+    
+    description = 'Run the client linting process'
+    workingDir = clientRoot
+
+    args = ['run', 'lint']
+}
+
 npmInstall.dependsOn npmSetup
 clientBuild.dependsOn npmInstall
 clientArtifacts.dependsOn clientBuild
 
 testClientCi.dependsOn npmSetup
 testE2EClientCi.dependsOn npmSetup
+lintClient.dependsOn npmSetup
