@@ -35,7 +35,7 @@ describe('EmployeeService', () => {
     });
 
     const req = httpMock.expectOne(`${environment.apiUrl}/employees`);
-    expect(req.request.method).toBe("GET");
+    expect(req.request.method).toBe('GET');
     req.flush(dummyEmployees);
   });
 });

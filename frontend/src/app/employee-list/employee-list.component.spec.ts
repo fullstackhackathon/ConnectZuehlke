@@ -45,23 +45,21 @@ describe('EmployeeListComponent', () => {
   });
 
   it('should render two employees', () => {
-    let listEl = fixture.debugElement.query(By.css('ul'));
+    const listEl = fixture.debugElement.query(By.css('ul'));
     expect(listEl.children.length).toBe(2);
   });
 
-  let searchList = function () {
-    let inputElement = searchEl.nativeElement;
+  function searchList() {
+    const inputElement = searchEl.nativeElement;
 
-    inputElement.value = "John";
+    inputElement.value = 'John';
     inputElement.dispatchEvent(new Event('input'));
     fixture.detectChanges();
-  };
+  }
 
   it('should filter one employees', () => {
     searchList();
-    let listEl = fixture.debugElement.query(By.css('ul'));
+    const listEl = fixture.debugElement.query(By.css('ul'));
     expect(listEl.children.length).toBe(1);
-
-
   });
 });

@@ -9,8 +9,7 @@ export class SearchPipe implements PipeTransform {
     let attributesAsArray: string[];
     if (attributesAsConcatinatedString === '*') {
       attributesAsArray = SearchPipe.getAllKnownAttributesOfElements(arrayOfElements);
-    }
-    else {
+    } else {
       attributesAsArray = attributesAsConcatinatedString.split(',');
     }
     return attributesAsArray;
@@ -30,9 +29,11 @@ export class SearchPipe implements PipeTransform {
   }
 
   transform(arrayOfElements: any[], attributesAsConcatinatedString: string, term: string): any {
-    if (!term) return arrayOfElements;
+    if (!term) {
+      return arrayOfElements;
+    }
 
-    let attributesAsArray = SearchPipe.parseAttributes(attributesAsConcatinatedString, arrayOfElements);
+    const attributesAsArray = SearchPipe.parseAttributes(attributesAsConcatinatedString, arrayOfElements);
 
     return (arrayOfElements || [])
       .filter(item => attributesAsArray
