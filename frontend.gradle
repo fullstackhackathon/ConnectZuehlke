@@ -31,3 +31,5 @@ task clientArtifacts(type: Copy) {
 npmInstall.dependsOn npmSetup
 clientBuild.dependsOn npmInstall
 clientArtifacts.dependsOn clientBuild
+
+npm_test.dependsOn npmSetup
