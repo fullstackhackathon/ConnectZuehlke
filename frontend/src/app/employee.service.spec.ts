@@ -4,6 +4,7 @@ import {EmployeeService} from './employee.service';
 import {HttpClientTestingModule, HttpTestingController} from '@angular/common/http/testing';
 import {Employee} from './domain/Employee';
 import {environment} from '../environments/environment';
+import {EMPLOYEES} from './employee-list/employee.service-mock';
 
 describe('EmployeeService', () => {
   let httpMock: HttpTestingController;
@@ -27,10 +28,7 @@ describe('EmployeeService', () => {
   });
 
   it('should call get employees', () => {
-    const dummyEmployees: Employee[] = [
-      {firstName: "John", lastName: "Doe"},
-      {firstName: "Max", lastName: "Mustermann"},
-    ];
+    const dummyEmployees = EMPLOYEES;
     service.getAllEmployees().subscribe((employees: Employee[]) => {
       expect(employees.length).toBe(2);
       expect(employees).toEqual(dummyEmployees);
