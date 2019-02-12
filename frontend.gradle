@@ -16,7 +16,7 @@ task clientBuild(type: NpmTask) {
     group = 'Client'
 
     description = 'Builds the client'
-    workingDir  = clientRoot
+    workingDir = clientRoot
 
     args = ['run', 'build']
     inputs.files fileTree(dir: clientRoot, excludes: ["dist/**", "test/**"])
@@ -28,6 +28,37 @@ task clientArtifacts(type: Copy) {
     into "build/classes/static"
 }
 
+task testClientCi(type: NpmTask){
+    group = 'Client'
+
+    description = 'Run the client tests in HeadlessChrome'
+    workingDir = clientRoot
+
+    args = ['run', 'ci-test']
+}
+
+task testE2EClientCi(type: NpmTask){
+    group = 'Client'
+
+    description = 'Run the E2E tests in HeadlessChrome'
+    workingDir = clientRoot
+
+    args = ['run', 'ci-e2e']
+}
+
+task lintClient(type: NpmTask){
+    group = 'Client'
+    
+    description = 'Run the client linting process'
+    workingDir = clientRoot
+
+    args = ['run', 'lint']
+}
+
 npmInstall.dependsOn npmSetup
 clientBuild.dependsOn npmInstall
 clientArtifacts.dependsOn clientBuild
+
+testClientCi.dependsOn npmSetup
+testE2EClientCi.dependsOn npmSetup
+lintClient.dependsOn npmSetup
