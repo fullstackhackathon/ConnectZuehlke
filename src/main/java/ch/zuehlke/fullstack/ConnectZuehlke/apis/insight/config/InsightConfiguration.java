@@ -12,7 +12,8 @@ public class InsightConfiguration {
     private String username;
     @Value("${insight.authentication.password}")
     private char[] password;
-
+    @Value("{insight.url}")
+    private String url;
 
     public Authenticator getAuthenticator() {
         if (StringUtils.isEmpty(username) || password == null || password.length == 0) {
@@ -20,5 +21,9 @@ public class InsightConfiguration {
         }
 
         return new InsightAuthentication(username, password);
+    }
+
+    public String getUrl() {
+        return url;
     }
 }

@@ -16,15 +16,21 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
-public class EmployeeService {
+public class InsightEmployeeService {
 
     private final RestTemplate restTemplate;
 
+    public InsightEmployeeService() {
+        this.restTemplate = null;
+    }
 
     @Autowired
-    public EmployeeService(RestTemplateBuilder restTemplateBuilder, InsightConfiguration insightConfiguration) {
+    public InsightEmployeeService(
+            RestTemplateBuilder restTemplateBuilder,
+            InsightConfiguration insightConfiguration
+    ) {
         this.restTemplate = restTemplateBuilder
-                .rootUri("https://insight.zuehlke.com/api/v1/")
+                .rootUri(insightConfiguration.getUrl())
                 .build();
         Authenticator.setDefault(insightConfiguration.getAuthenticator());
     }

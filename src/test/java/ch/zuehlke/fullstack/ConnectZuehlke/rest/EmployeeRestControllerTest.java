@@ -1,6 +1,6 @@
 package ch.zuehlke.fullstack.ConnectZuehlke.rest;
 
-import ch.zuehlke.fullstack.ConnectZuehlke.apis.insight.service.EmployeeService;
+import ch.zuehlke.fullstack.ConnectZuehlke.apis.insight.service.InsightEmployeeService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mockito;
@@ -24,7 +24,7 @@ public class EmployeeRestControllerTest {
     private MockMvc mockMvc;
 
     @MockBean
-    private EmployeeService employeeService;
+    private InsightEmployeeService employeeService;
 
     @Test
     public void testGetUser() throws Exception {
