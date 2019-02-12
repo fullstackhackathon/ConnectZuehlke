@@ -20,3 +20,4 @@ cache:
 
 script:
 - ./gradlew test
+- ./gradlew npm_test
