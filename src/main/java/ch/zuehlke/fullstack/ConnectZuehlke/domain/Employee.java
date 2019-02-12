@@ -1,6 +1,7 @@
 package ch.zuehlke.fullstack.ConnectZuehlke.domain;
 
 public class Employee {
+
     private String firstName;
     private String lastName;
 

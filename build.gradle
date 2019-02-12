@@ -15,10 +15,11 @@ repositories {
 }
 
 dependencies {
-    compile group: 'org.apache.commons', name: 'commons-lang3', version: '3.0'
 
     implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.apache.httpcomponents:httpclient'
     runtimeOnly 'org.springframework.boot:spring-boot-devtools'
+
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     testImplementation 'org.springframework.security:spring-security-test'
 }

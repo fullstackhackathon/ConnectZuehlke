@@ -1,26 +1,19 @@
 import {Injectable} from '@angular/core';
-// This will be automatically replaced with production if we execute the `ng serve` command with `--environment prod`.
-import {environment} from '../environments/environment';
 import {Observable, of} from 'rxjs';
 import {catchError} from 'rxjs/operators';
 import {HttpClient} from '@angular/common/http';
 import {Employee} from './domain/Employee';
 
-
-const API_URL = environment.apiUrl;
-
 @Injectable({providedIn: 'root'})
 export class EmployeeService {
 
-  constructor(
-    private http: HttpClient,
-  ) {
+  constructor(private http: HttpClient) {
   }
 
   public getAllEmployees(): Observable<Employee[]> {
 
     return this.http
-      .get<Employee[]>(API_URL + '/employees')
+      .get<Employee[]>('/api/employees')
       .pipe(catchError(this.handleError('getAllEmployees', [])));
 
   }

@@ -3,7 +3,6 @@ import {TestBed} from '@angular/core/testing';
 import {EmployeeService} from './employee.service';
 import {HttpClientTestingModule, HttpTestingController} from '@angular/common/http/testing';
 import {Employee} from './domain/Employee';
-import {environment} from '../environments/environment';
 import {EMPLOYEES} from './employee-list/employee.service-mock';
 
 describe('EmployeeService', () => {
@@ -34,7 +33,7 @@ describe('EmployeeService', () => {
       expect(employees).toEqual(dummyEmployees);
     });
 
-    const req = httpMock.expectOne(`${environment.apiUrl}/employees`);
+    const req = httpMock.expectOne('/api/employees');
     expect(req.request.method).toBe('GET');
     req.flush(dummyEmployees);
   });
