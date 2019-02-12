@@ -4,6 +4,9 @@ sudo: false
 env:
 - SPRING_PROFILES_ACTIVE=ci
 
+addons:
+  chrome: stable
+
 services:
 
 jdk:
