@@ -1,0 +1,33 @@
+apply plugin: 'com.moowork.node'
+
+def clientRoot = file("${project.rootDir}/frontend")
+def clientDist = file("${clientRoot.getAbsolutePath()}/dist")
+
+node {
+    version = '10.13.0'
+    download = true
+    // Set the work directory for unpacking node
+    workDir = new File(clientRoot, ".gradle/nodejs")
+    // Set the work directory where node_modules should be located
+    nodeModulesDir = clientRoot
+}
+
+task clientBuild(type: NpmTask) {
+    group = 'Client'
+
+    description = 'Builds the client'
+    workingDir  = clientRoot
+
+    args = ['run', 'build']
+    inputs.files fileTree(dir: clientRoot, excludes: ["dist/**", "test/**"])
+    outputs.dir(clientDist)
+}
+
+task clientArtifacts(type: Copy) {
+    from clientDist
+    into "build/classes/static"
+}
+
+npmInstall.dependsOn npmSetup
+clientBuild.dependsOn npmInstall
+clientArtifacts.dependsOn clientBuild
