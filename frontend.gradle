@@ -28,8 +28,17 @@ task clientArtifacts(type: Copy) {
     into "build/classes/static"
 }
 
+task testClientCi(type: NpmTask){
+    group = 'Client'
+
+    description = 'Run the client tests in HeadlessChrome'
+    workingDir = clientRoot
+
+    args = ['run', 'test-headless']
+}
+
 npmInstall.dependsOn npmSetup
 clientBuild.dependsOn npmInstall
 clientArtifacts.dependsOn clientBuild
 
-npm_test.dependsOn npmSetup
+testClientCi.dependsOn npmSetup

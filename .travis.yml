@@ -25,4 +25,4 @@ before_script:
 
 script:
 - ./gradlew test
-- ./gradlew npm_test
+- ./gradlew testClientCi
