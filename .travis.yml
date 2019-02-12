@@ -30,4 +30,5 @@ script:
 - ./gradlew test
 - ./gradlew lintClient
 - ./gradlew testClientCi
+- ./gradlew -q bootRun &
 - ./gradlew testE2EClientCi
