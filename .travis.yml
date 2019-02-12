@@ -26,3 +26,4 @@ before_script:
 script:
 - ./gradlew test
 - ./gradlew testClientCi
+- ./gradlew testE2EClientCi

@@ -34,7 +34,16 @@ task testClientCi(type: NpmTask){
     description = 'Run the client tests in HeadlessChrome'
     workingDir = clientRoot
 
-    args = ['run', 'test-headless']
+    args = ['run', 'ci-test']
+}
+
+task testE2EClientCi(type: NpmTask){
+    group = 'Client'
+
+    description = 'Run the E2E tests in HeadlessChrome'
+    workingDir = clientRoot
+
+    args = ['run', 'ci-e2e']
 }
 
 npmInstall.dependsOn npmSetup
@@ -42,3 +51,4 @@ clientBuild.dependsOn npmInstall
 clientArtifacts.dependsOn clientBuild
 
 testClientCi.dependsOn npmSetup
+testE2EClientCi.dependsOn npmSetup
