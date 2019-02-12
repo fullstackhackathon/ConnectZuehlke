@@ -18,6 +18,11 @@ cache:
   - $HOME/.gradle/caches/
   - $HOME/.gradle/wrapper/
 
+
+before_script:
+- ./gradlew npmSetup
+- ./gradlew npm_install -g @angular/cli
+
 script:
 - ./gradlew test
 - ./gradlew npm_test
