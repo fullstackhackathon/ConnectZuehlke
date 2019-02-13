@@ -21,12 +21,12 @@ A fully runnable JAR file with the frontend can be build by running:
 ```
 To run this jar you can then run 
 ```
-java -jar backend/build/libs/backend-0.0.1-SNAPSHOT.jar --spring.profiles.active=ci
+java -jar backend/build/libs/backend-<YOUR VERSION>.jar --spring.profiles.active=ci
 ```
 If you want to execute it against the Insight API (and not with the profile 'ci') you will need to provide your username and password:
 
 ```
-INSIGHT_AUTHENTICATION_USERNAME=szil INSIGHT_AUTHENTICATION_PASSWORD=<YOUR PASSWORD GOES HERE> java -jar backend/build/libs/backend-0.0.1-SNAPSHOT.jar
+INSIGHT_AUTHENTICATION_USERNAME=szil INSIGHT_AUTHENTICATION_PASSWORD=<YOUR PASSWORD GOES HERE> java -jar backend/build/libs/backend-<YOUR VERSION>.jar
 ```
 
 Now, after the application started successfully you can navigate to `http://localhost:8080` and see the running angular app.

@@ -30,5 +30,5 @@ script:
 - ./gradlew :frontend:test
 - ./gradlew :backend:test
 - ./gradlew :backend:bootJar
-- ./startServer.sh
+- ./startServer.sh 0.0.1
 - ./gradlew :frontend:e2e
