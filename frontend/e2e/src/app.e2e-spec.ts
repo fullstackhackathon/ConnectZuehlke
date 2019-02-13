@@ -1,17 +1,36 @@
-import {AppPage} from './app.po';
+import {AppPage} from './pages/app.po';
 import {browser, logging} from 'protractor';
 
 describe('Main App Page', () => {
-  let page: AppPage;
+  let appPage: AppPage;
 
   beforeEach(() => {
-    page = new AppPage();
+    appPage = new AppPage();
   });
 
   it('should display welcome message', () => {
-    page.navigateTo();
-    expect(page.getTitleText()).toEqual('Welcome to Zühlke Connect!');
+    appPage.navigateTo();
+    expect(appPage.getTitleText()).toEqual('Welcome to Zühlke Connect!');
   });
+
+  it('should show sidebar when clicking on navigation header', () => {
+    appPage.navigateTo();
+    expect(appPage.sidebar().isDisplayed()).toBeFalsy();
+    appPage.toolbar().toggleSidebar();
+    expect(appPage.sidebar().isDisplayed()).toBeTruthy();
+  });
+
+  it('should go to employees list', () => {
+    appPage.navigateTo();
+    appPage.toolbar().toggleSidebar();
+    expect(appPage.sidebar().isDisplayed()).toBeTruthy();
+
+    appPage.sidebar().clickOn("Employees");
+    const employeeListPage = appPage.employeeList();
+
+    expect(employeeListPage.isDisplayed()).toBeTruthy();
+  });
+
 
   afterEach(async () => {
     // Assert that there are no errors emitted from the browser

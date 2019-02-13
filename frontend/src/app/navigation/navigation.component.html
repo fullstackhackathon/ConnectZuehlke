@@ -1,0 +1,17 @@
+<!--
+-- generated with Schematics `ng generate @angular/material:nav navigation`
+--   see: https://material.angular.io/guide/schematics#install-schematics
+-->
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer mode="push"
+               fixedInViewport="true"
+               [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'">
+    <app-sidebar data-id="sidebar"></app-sidebar>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <app-topbar (toggleSidbar)="drawer.toggle()"></app-topbar>
+
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>

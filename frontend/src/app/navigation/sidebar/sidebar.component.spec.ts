@@ -1,18 +1,22 @@
 import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import {EmployeeComponent} from './employee.component';
+import {SidebarComponent} from './sidebar.component';
+import {MatListModule, MatSidenavModule, MatToolbarModule} from '@angular/material';
+import {LayoutModule} from '@angular/cdk/layout';
 import {NoopAnimationsModule} from '@angular/platform-browser/animations';
-import {MatListModule} from '@angular/material';
 
-describe('EmployeeComponent', () => {
-  let component: EmployeeComponent;
-  let fixture: ComponentFixture<EmployeeComponent>;
+describe('SidebarComponent', () => {
+  let component: SidebarComponent;
+  let fixture: ComponentFixture<SidebarComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [EmployeeComponent],
+      declarations: [SidebarComponent],
       imports: [
         NoopAnimationsModule,
+        LayoutModule,
+        MatToolbarModule,
+        MatSidenavModule,
         MatListModule,
       ]
     })
@@ -20,9 +24,8 @@ describe('EmployeeComponent', () => {
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(EmployeeComponent);
+    fixture = TestBed.createComponent(SidebarComponent);
     component = fixture.componentInstance;
-    component.employee = {firstName: "Max", lastName: "Mustermann", id: 2}
     fixture.detectChanges();
   });
 
