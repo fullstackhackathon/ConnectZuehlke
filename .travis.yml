@@ -23,8 +23,6 @@ cache:
 
 before_script:
 - ./gradlew npm_install -g @angular/cli
-- ./gradlew npm_run_webdriver
-
 script:
 - ./gradlew :frontend:lint
 - ./gradlew :frontend:test
