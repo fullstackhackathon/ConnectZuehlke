@@ -10,7 +10,8 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "ci-test": "ng test --watch=false --browsers=ChromeHeadless",
-    "ci-e2e": "protractor e2e/protractor-ci.conf.js"
+    "ci-e2e": "protractor e2e/protractor-ci.conf.js",
+    "webdriver": "webdriver-manager update"
   },
   "private": true,
   "dependencies": {
