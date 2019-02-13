@@ -46,7 +46,8 @@ public class EmployeeRestControllerTest {
                         "  {\n" +
                         "    \"firstName\": \"Max\",\n" +
                         "    \"lastName\": \"Mustermann\",\n" +
-                        "    \"id\": 1\n" +
+                        "    \"id\": 1,\n" +
+                        "    \"code\": \"mmu\"\n" +
                         "  }\n" +
                         "]"));
 

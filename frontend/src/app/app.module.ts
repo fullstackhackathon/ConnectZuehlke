@@ -11,7 +11,7 @@ import {intersectionObserverPreset, LazyLoadImageModule} from 'ng-lazyload-image
 
 import {library} from '@fortawesome/fontawesome-svg-core';
 import {EmployeeListComponent} from './employee-list/employee-list.component';
-import {EmployeeComponent} from './employee/employee.component';
+import {EmployeeComponent} from './employee-list/employee/employee.component';
 import {PageNotFoundComponent} from './page-not-found/page-not-found.component';
 import {HttpClientModule} from '@angular/common/http';
 import {SearchPipe} from './search.pipe';
@@ -31,6 +31,7 @@ import {LayoutModule} from '@angular/cdk/layout';
 import {HackathonHeadlineComponent} from './hackathon-headline/hackathon-headline.component';
 import {SidebarComponent} from './navigation/sidebar/sidebar.component';
 import {TopbarComponent} from './navigation/topbar/topbar.component';
+import {EmployeeDetailComponent} from './employee-detail/employee-detail.component';
 
 
 // For more icons, please checkout https://fontawesome.com/icons?d=gallery
@@ -49,7 +50,8 @@ library.add(faAngular);
     NavigationComponent,
     HackathonHeadlineComponent,
     SidebarComponent,
-    TopbarComponent
+    TopbarComponent,
+    EmployeeDetailComponent
   ],
   imports: [
     BrowserModule,

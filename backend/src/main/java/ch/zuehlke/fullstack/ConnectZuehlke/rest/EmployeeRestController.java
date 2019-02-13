@@ -25,6 +25,11 @@ public class EmployeeRestController {
         return employeeService.getEmployees();
     }
 
+    @GetMapping("/api/employee/{code}")
+    public Employee employee(@PathVariable(value = "code") String code) {
+        return employeeService.getEmployee(code);
+    }
+
     @GetMapping(value = "/api/employee/{id}/picture",
             produces = MediaType.IMAGE_JPEG_VALUE
     )

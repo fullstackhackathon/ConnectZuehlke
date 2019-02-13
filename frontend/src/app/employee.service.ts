@@ -41,4 +41,10 @@ export class EmployeeService {
   private log(s: string) {
     console.log(`${this}: ${s}`);
   }
+
+  getEmployee(id: string): Observable<Employee> {
+    return this.http
+      .get<Employee>(`/api/employee/${id}`)
+      .pipe(catchError(this.handleError('getEmployee', null)));
+  }
 }

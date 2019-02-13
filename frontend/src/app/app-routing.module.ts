@@ -3,9 +3,11 @@ import {RouterModule, Routes} from '@angular/router';
 import {EmployeeListComponent} from './employee-list/employee-list.component';
 import {PageNotFoundComponent} from './page-not-found/page-not-found.component';
 import {HackathonHeadlineComponent} from './hackathon-headline/hackathon-headline.component';
+import {EmployeeDetailComponent} from './employee-detail/employee-detail.component';
 
 const routes: Routes = [
   {path: 'employees', component: EmployeeListComponent},
+  {path: 'employee/:code', component: EmployeeDetailComponent},
   {path: 'welcome', component: HackathonHeadlineComponent},
 
   {path: '', redirectTo: '/welcome', pathMatch: 'full'},

@@ -74,4 +74,12 @@ public class RemoteInsightEmployeeService implements InsightEmployeeService {
         }
         throw new IllegalStateException("Status code was not 200");
     }
+
+    @Override
+    public Employee getEmployee(String code) {
+        ResponseEntity<EmployeeDto> response = this.restTemplate
+                .getForEntity("/employees/" + code, EmployeeDto.class);
+
+        return response.getBody().toEmployee();
+    }
 }
