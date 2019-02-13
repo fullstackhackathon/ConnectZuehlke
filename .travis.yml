@@ -23,12 +23,12 @@ cache:
 
 
 before_script:
-- ./gradlew npmSetup
 - ./gradlew npm_install -g @angular/cli
 
 script:
-- ./gradlew test
-- ./gradlew lintClient
-- ./gradlew testClientCi
-- ./gradlew -q bootRun &
-- ./gradlew testE2EClientCi
+- ./gradlew :frontend:lint
+- ./gradlew :frontend:check
+- ./gradlew :backend:test
+- ./gradlew :backend:bootJar
+- ./startServer.sh
+- ./gradlew :frontend:e2e
