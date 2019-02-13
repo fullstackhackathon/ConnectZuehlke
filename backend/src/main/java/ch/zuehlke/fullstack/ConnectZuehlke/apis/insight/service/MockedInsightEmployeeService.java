@@ -14,9 +14,9 @@ public class MockedInsightEmployeeService implements InsightEmployeeService {
 
     public List<Employee> getEmployees() {
         return asList(
-                new Employee("Klaus", "Mustermann"),
-                new Employee("Magda", "Müller"),
-                new Employee("Kurt", "Peters")
+                new Employee("Klaus", "Mustermann", 1),
+                new Employee("Magda", "Müller", 2),
+                new Employee("Kurt", "Peters", 3)
         );
     }
 }

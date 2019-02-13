@@ -40,12 +40,13 @@ public class EmployeeRestControllerTest {
 
     @Test
     public void testGetUsers() throws Exception {
-        when(employeeService.getEmployees()).thenReturn(Arrays.asList(new Employee("Max", "Mustermann")));
+        when(employeeService.getEmployees()).thenReturn(Arrays.asList(new Employee("Max", "Mustermann", 1)));
         mockMvc.perform(get("/api/employees"))
                 .andExpect(content().json("[\n" +
                         "  {\n" +
                         "    \"firstName\": \"Max\",\n" +
-                        "    \"lastName\": \"Mustermann\"\n" +
+                        "    \"lastName\": \"Mustermann\",\n" +
+                        "    \"id\": 1\n" +
                         "  }\n" +
                         "]"));
 
