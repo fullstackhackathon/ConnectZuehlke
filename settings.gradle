@@ -1,1 +1,3 @@
 rootProject.name = 'ConnectZuehlke'
+include 'backend'
+include 'frontend'

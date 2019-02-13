@@ -6,9 +6,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class ConnectZuehlkeApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(ConnectZuehlkeApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(ConnectZuehlkeApplication.class, args);
+    }
 
 }
 

@@ -1,11 +1,12 @@
 package ch.zuehlke.fullstack.ConnectZuehlke.apis.insight.service;
 
-import static java.util.Arrays.asList;
-
 import ch.zuehlke.fullstack.ConnectZuehlke.domain.Employee;
-import java.util.List;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
+
+import static java.util.Arrays.asList;
 
 @Service
 @Profile({"ci", "default"})
