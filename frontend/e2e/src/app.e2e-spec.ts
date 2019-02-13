@@ -25,7 +25,7 @@ describe('Main App Page', () => {
     appPage.toolbar().toggleSidebar();
     expect(appPage.sidebar().isDisplayed()).toBeTruthy();
 
-    appPage.sidebar().clickOn("Employees");
+    appPage.sidebar().clickOn('Employees');
     const employeeListPage = appPage.employeeList();
 
     expect(employeeListPage.isDisplayed()).toBeTruthy();

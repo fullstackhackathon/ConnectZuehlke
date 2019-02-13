@@ -1,7 +1,7 @@
 import {browser, by, element, ElementFinder} from 'protractor';
 
 export class EmployeeListPo {
-  private rootSelector = by.css('[data-id="employee-list"]')
+  private rootSelector = by.css('[data-id="employee-list"]');
   private root: ElementFinder;
 
   constructor() {

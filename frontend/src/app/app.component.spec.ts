@@ -13,7 +13,7 @@ describe('AppComponent', () => {
       ],
       declarations: [
         AppComponent,
-        MockComponent({selector: "app-navigation"}),
+        MockComponent({selector: 'app-navigation'}),
       ],
     }).compileComponents();
   }));

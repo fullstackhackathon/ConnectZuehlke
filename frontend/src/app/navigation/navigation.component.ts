@@ -22,6 +22,6 @@ export class NavigationComponent {
   constructor(private breakpointObserver: BreakpointObserver, private router: Router) {
     this.router.events.subscribe(() => {
       this.drawer.close();
-    })
+    });
   }
 }

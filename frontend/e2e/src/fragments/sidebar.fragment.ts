@@ -10,7 +10,7 @@ export class SidebarFragment {
   }
 
   isDisplayed() {
-    return this.root.isDisplayed()
+    return this.root.isDisplayed();
   }
 
   clickOn(linkText: string) {

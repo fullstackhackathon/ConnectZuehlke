@@ -22,7 +22,7 @@ describe('EmployeeComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(EmployeeComponent);
     component = fixture.componentInstance;
-    component.employee = {firstName: "Max", lastName: "Mustermann", id: 2}
+    component.employee = {firstName: 'Max', lastName: 'Mustermann', id: 2};
     fixture.detectChanges();
   });
 
