@@ -6,5 +6,6 @@ config.capabilities = {
     args: ['--headless', '--no-sandbox']
   }
 };
+config.baseUrl = 'http://localhost:21000/';
 
 exports.config = config;

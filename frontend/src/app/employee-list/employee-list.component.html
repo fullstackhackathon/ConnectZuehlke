@@ -2,6 +2,7 @@
 
 <input [(ngModel)]="searchQuery" placeholder="Type something to search">
 
+<p>Hallo</p>
 
 <ul>
   <li *ngFor="let employee of employees | search:'firstName,lastName':searchQuery">

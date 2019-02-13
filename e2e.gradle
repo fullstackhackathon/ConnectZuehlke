@@ -1,4 +1,0 @@
-// This is required to be able to execute bootRun with parameters, e.g.:
-// ./gradlew -Dspring.profiles.active=ci bootRun
-bootRun.systemProperties = System.properties
-

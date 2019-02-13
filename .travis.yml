@@ -12,23 +12,21 @@ services:
 jdk:
 - oraclejdk8
 
-before_cache:
-- rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
-- rm -fr $HOME/.gradle/caches/*/plugin-resolution/
-
 cache:
   directories:
   - $HOME/.gradle/caches/
   - $HOME/.gradle/wrapper/
+  - $HOME/.gradle/nodejs/
+  - frontend/node_modules
+  - frontend/.gradle/
 
 
 before_script:
-- ./gradlew npmSetup
 - ./gradlew npm_install -g @angular/cli
-
 script:
-- ./gradlew test
-- ./gradlew lintClient
-- ./gradlew testClientCi
-- ./gradlew -q bootRun &
-- ./gradlew testE2EClientCi
+- ./gradlew :frontend:lint
+- ./gradlew :frontend:test
+- ./gradlew :backend:test
+- ./gradlew :backend:bootJar
+- ./startServer.sh 0.0.1
+- ./gradlew :frontend:e2e
