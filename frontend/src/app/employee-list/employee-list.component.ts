@@ -9,6 +9,7 @@ import {Employee} from '../domain/Employee';
 })
 export class EmployeeListComponent implements OnInit {
   employees: Employee[];
+  searchQuery: string;
 
   constructor(
     private employeeService: EmployeeService
