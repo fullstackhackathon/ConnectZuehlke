@@ -1,5 +1,7 @@
 <mat-list-item>
-  <img matListAvatar src="" alt="{{employee.firstName}} {{employee.lastName}}">
+  <img matListAvatar
+       defaultImage="assets/demo.jpg" lazyLoad="/api/employee/{{employee.id}}/picture"
+       alt="{{employee.firstName}} {{employee.lastName}}">
   <h3 matLine> {{employee.firstName}} {{employee.lastName}}</h3>
   <p matLine> ID: {{employee.id}}</p>
 </mat-list-item>

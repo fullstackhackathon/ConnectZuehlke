@@ -6,6 +6,8 @@ import {AppComponent} from './app.component';
 import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 import {faHeart} from '@fortawesome/free-solid-svg-icons';
 import {faAngular, faJava} from '@fortawesome/free-brands-svg-icons';
+import {intersectionObserverPreset, LazyLoadImageModule} from 'ng-lazyload-image';
+
 
 import {library} from '@fortawesome/fontawesome-svg-core';
 import {EmployeeListComponent} from './employee-list/employee-list.component';
@@ -54,6 +56,9 @@ library.add(faAngular);
     FormsModule,
     AppRoutingModule,
     FontAwesomeModule,
+    LazyLoadImageModule.forRoot({
+      preset: intersectionObserverPreset
+    }),
     HttpClientModule,
     BrowserAnimationsModule,
     MatInputModule,
