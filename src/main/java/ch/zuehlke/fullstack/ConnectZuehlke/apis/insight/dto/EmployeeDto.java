@@ -11,27 +11,15 @@ public class EmployeeDto {
     @JsonProperty("LastName")
     private String lastName;
 
-    public EmployeeDto() {
-    }
-
     public String getLastName() {
         return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
     }
 
     public String getFirstName() {
         return firstName;
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
     public Employee toEmployee() {
-        Employee employee = new Employee(getFirstName(), getLastName());
-        return employee;
+        return new Employee(getFirstName(), getLastName());
     }
 }
