@@ -4,6 +4,7 @@ import {EmployeeComponent} from './employee.component';
 import {NoopAnimationsModule} from '@angular/platform-browser/animations';
 import {MatListModule} from '@angular/material';
 import {LazyLoadImageModule} from 'ng-lazyload-image';
+import {RouterTestingModule} from '@angular/router/testing';
 
 describe('EmployeeComponent', () => {
   let component: EmployeeComponent;
@@ -16,6 +17,7 @@ describe('EmployeeComponent', () => {
         NoopAnimationsModule,
         MatListModule,
         LazyLoadImageModule,
+        RouterTestingModule,
       ]
     })
       .compileComponents();
@@ -24,7 +26,7 @@ describe('EmployeeComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(EmployeeComponent);
     component = fixture.componentInstance;
-    component.employee = {firstName: 'Max', lastName: 'Mustermann', id: 2};
+    component.employee = {firstName: 'Max', lastName: 'Mustermann', id: 2, code: 'mmu'};
     fixture.detectChanges();
   });
 

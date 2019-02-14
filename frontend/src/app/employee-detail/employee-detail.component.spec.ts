@@ -1,6 +1,9 @@
 import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
 import {EmployeeDetailComponent} from './employee-detail.component';
+import {RouterTestingModule} from '@angular/router/testing';
+import {EmployeeService} from '../employee.service';
+import {EmployeeServiceMock} from '../employee-list/employee.service-mock';
 
 describe('EmployeeDetailComponent', () => {
   let component: EmployeeDetailComponent;
@@ -8,7 +11,13 @@ describe('EmployeeDetailComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [EmployeeDetailComponent]
+      imports: [
+        RouterTestingModule,
+      ],
+      declarations: [EmployeeDetailComponent],
+      providers: [
+        {provide: EmployeeService, useClass: EmployeeServiceMock}
+      ]
     })
       .compileComponents();
   }));

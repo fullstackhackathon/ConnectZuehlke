@@ -9,8 +9,9 @@ import {By} from '@angular/platform-browser';
 import {DebugElement} from '@angular/core';
 import {MatInputModule, MatListModule} from '@angular/material';
 import {NoopAnimationsModule} from '@angular/platform-browser/animations';
-import {EmployeeComponent} from '../employee/employee.component';
+import {EmployeeComponent} from './employee/employee.component';
 import {LazyLoadImageModule} from 'ng-lazyload-image';
+import {RouterTestingModule} from '@angular/router/testing';
 
 describe('EmployeeListComponent', () => {
   let component: EmployeeListComponent;
@@ -26,6 +27,7 @@ describe('EmployeeListComponent', () => {
         MatInputModule,
         MatListModule,
         LazyLoadImageModule,
+        RouterTestingModule,
       ],
       declarations: [
         EmployeeListComponent,
