@@ -2,8 +2,8 @@ import {Observable, of} from 'rxjs';
 import {Employee} from '../domain/Employee';
 
 export const EMPLOYEES: Employee[] = [
-  {firstName: 'John', lastName: 'Doe', id: 1},
-  {firstName: 'Max', lastName: 'Mustermann', id: 2},
+  {firstName: 'John', lastName: 'Doe', id: 1, code: 'jdo'},
+  {firstName: 'Max', lastName: 'Mustermann', id: 2, code: 'mmu'},
 ];
 
 export class EmployeeServiceMock {
