@@ -10,4 +10,8 @@ export class EmployeeServiceMock {
   getAllEmployees(): Observable<Employee[]> {
     return of(EMPLOYEES);
   }
+
+  getEmployee(code: string): Observable<Employee> {
+    return of(EMPLOYEES.find(e => e.code === code));
+  }
 }
