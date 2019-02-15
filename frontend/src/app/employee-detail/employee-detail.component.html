@@ -1,0 +1,6 @@
+<div *ngIf="employee$ | async as employee">
+  <h3>{{ employee.firstName}} {{ employee.lastName}}</h3>
+  <div>
+    <label>Id: </label>{{ employee.id }}
+  </div>
+</div>

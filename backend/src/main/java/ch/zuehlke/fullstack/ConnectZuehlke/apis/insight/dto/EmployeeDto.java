@@ -10,6 +10,10 @@ public class EmployeeDto {
     private String firstName;
     @JsonProperty("LastName")
     private String lastName;
+    @JsonProperty("Id")
+    private int id;
+    @JsonProperty("Code")
+    private String code;
 
     public String getLastName() {
         return lastName;
@@ -19,7 +23,16 @@ public class EmployeeDto {
         return firstName;
     }
 
-    public Employee toEmployee() {
-        return new Employee(getFirstName(), getLastName());
+    public int getId() {
+        return id;
     }
+
+    public Employee toEmployee() {
+        return new Employee(getFirstName(), getLastName(), getId(), getCode());
+    }
+
+    private String getCode() {
+        return code;
+    }
+
 }

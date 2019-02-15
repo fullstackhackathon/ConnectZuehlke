@@ -7,19 +7,31 @@ import {EmployeeService} from '../employee.service';
 import {EmployeeServiceMock} from './employee.service-mock';
 import {By} from '@angular/platform-browser';
 import {DebugElement} from '@angular/core';
+import {MatInputModule, MatListModule} from '@angular/material';
+import {NoopAnimationsModule} from '@angular/platform-browser/animations';
+import {EmployeeComponent} from './employee/employee.component';
+import {LazyLoadImageModule} from 'ng-lazyload-image';
+import {RouterTestingModule} from '@angular/router/testing';
 
 describe('EmployeeListComponent', () => {
   let component: EmployeeListComponent;
   let fixture: ComponentFixture<EmployeeListComponent>;
   let searchEl: DebugElement;
+  let listEl: DebugElement;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [
         FormsModule,
+        NoopAnimationsModule,
+        MatInputModule,
+        MatListModule,
+        LazyLoadImageModule,
+        RouterTestingModule,
       ],
       declarations: [
         EmployeeListComponent,
+        EmployeeComponent,
         SearchPipe,
       ],
       providers: [
@@ -34,6 +46,7 @@ describe('EmployeeListComponent', () => {
     component = fixture.componentInstance;
     fixture.detectChanges();
     searchEl = fixture.debugElement.query(By.css('input'));
+    listEl = fixture.debugElement.query(By.css('[data-id="employee-list"]'));
   });
 
   it('should create', () => {
@@ -45,7 +58,6 @@ describe('EmployeeListComponent', () => {
   });
 
   it('should render two employees', () => {
-    const listEl = fixture.debugElement.query(By.css('ul'));
     expect(listEl.children.length).toBe(2);
   });
 
@@ -59,7 +71,7 @@ describe('EmployeeListComponent', () => {
 
   it('should filter one employees', () => {
     searchList();
-    const listEl = fixture.debugElement.query(By.css('ul'));
+
     expect(listEl.children.length).toBe(1);
   });
 });

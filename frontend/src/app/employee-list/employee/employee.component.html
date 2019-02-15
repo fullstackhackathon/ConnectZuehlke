@@ -1,0 +1,8 @@
+<mat-list-item>
+  <img matListAvatar
+       defaultImage="assets/demo.jpg" lazyLoad="/api/employee/{{employee.id}}/picture"
+       alt="{{employee.firstName}} {{employee.lastName}}">
+  <a matLine [routerLink]="['/employee', employee.code]"> {{employee.firstName}} {{employee.lastName}}</a>s
+  <p matLine> ID: {{employee.id}}</p>
+
+</mat-list-item>
