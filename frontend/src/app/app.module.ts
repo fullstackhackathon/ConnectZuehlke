@@ -32,6 +32,8 @@ import {HackathonHeadlineComponent} from './hackathon-headline/hackathon-headlin
 import {SidebarComponent} from './navigation/sidebar/sidebar.component';
 import {TopbarComponent} from './navigation/topbar/topbar.component';
 import {EmployeeDetailComponent} from './employee-detail/employee-detail.component';
+import {MapComponent} from './map/map.component';
+import {AgmCoreModule} from '@agm/core';
 
 
 // For more icons, please checkout https://fontawesome.com/icons?d=gallery
@@ -51,7 +53,8 @@ library.add(faAngular);
     HackathonHeadlineComponent,
     SidebarComponent,
     TopbarComponent,
-    EmployeeDetailComponent
+    EmployeeDetailComponent,
+    MapComponent
   ],
   imports: [
     BrowserModule,
@@ -70,7 +73,8 @@ library.add(faAngular);
     LayoutModule,
     MatToolbarModule,
     MatSidenavModule,
-    MatListModule
+    MatListModule,
+    AgmCoreModule.forRoot({apiKey: 'AIzaSyBrgp24CvFV3M0PZGByVDVEG0qn56k8Y-g'})
   ],
   providers: [],
   bootstrap: [AppComponent]
