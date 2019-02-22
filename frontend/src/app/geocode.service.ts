@@ -13,7 +13,7 @@ export class GeocodeService {
       this.mapsApiLoader.load()
         .then(() => resolve(new google.maps.Geocoder()))
         .catch(reason => reject(reason));
-    }))
+    }));
 
 
   }
@@ -26,7 +26,7 @@ export class GeocodeService {
   geocode(address: string): Promise<google.maps.GeocoderResult[]> {
     return this.geocoder$.then(geocoder => {
       return new Promise<google.maps.GeocoderResult[]>((resolve, reject) => {
-        geocoder.geocode({address: address}, (results: google.maps.GeocoderResult[], status: google.maps.GeocoderStatus) => {
+        geocoder.geocode({address}, (results: google.maps.GeocoderResult[], status: google.maps.GeocoderStatus) => {
           if (status === google.maps.GeocoderStatus.OK) {
             resolve(results);
           } else {
@@ -34,6 +34,6 @@ export class GeocodeService {
           }
         });
       });
-    })
+    });
   }
 }
