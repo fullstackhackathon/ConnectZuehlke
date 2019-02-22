@@ -2,7 +2,13 @@
 To view the insight API specification please execute:
 
 ```
+
+#Local swagger doc
+docker run -d -p 8090:8080 -e "SWAGGER_JSON=/docs/insight.json" -v `pwd`/docs:/docs swaggerapi/swagger-ui
+
+# OR remote sawagger doc
 docker run -d -p 8090:8080 -e API_URL=https://insight.zuehlke.com/swagger/docs/v1 swaggerapi/swagger-ui
+
 open http://localhost:8090
 ```
 
