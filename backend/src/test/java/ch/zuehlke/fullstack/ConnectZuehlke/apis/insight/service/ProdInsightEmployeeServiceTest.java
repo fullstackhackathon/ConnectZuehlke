@@ -19,6 +19,6 @@ public class ProdInsightEmployeeServiceTest {
 
     @Test
     public void testDefaultProfileReturnsMockedInsightEmployeeService() {
-        assertTrue(employeeService instanceof RemoteInsightEmployeeService);
+        assertTrue(employeeService instanceof InsightEmployeeServiceRemote);
     }
 }
