@@ -1,0 +1,11 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="ConnectZuehlkeApplication (mock)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+    <module name="backend_main" />
+    <option name="SPRING_BOOT_MAIN_CLASS" value="ch.zuehlke.fullstack.ConnectZuehlke.ConnectZuehlkeApplication" />
+    <option name="ACTIVE_PROFILES" value="default" />
+    <option name="ALTERNATIVE_JRE_PATH" />
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>
