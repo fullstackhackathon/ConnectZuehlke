@@ -16,7 +16,6 @@ export class MapComponent implements OnInit {
     const adressLookup = 'Schlieren';
     this.geocodeService.geocodeFirst(adressLookup)
       .then(location => {
-        console.log(`${adressLookup} was found: ${JSON.stringify(location)}`);
         this.lat = location.geometry.location.lat();
         this.lng = location.geometry.location.lng();
       });

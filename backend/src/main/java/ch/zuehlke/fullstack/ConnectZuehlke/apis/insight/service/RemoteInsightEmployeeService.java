@@ -3,12 +3,20 @@ package ch.zuehlke.fullstack.ConnectZuehlke.apis.insight.service;
 import ch.zuehlke.fullstack.ConnectZuehlke.apis.insight.config.InsightProperties;
 import ch.zuehlke.fullstack.ConnectZuehlke.apis.insight.dto.EmployeeDto;
 import ch.zuehlke.fullstack.ConnectZuehlke.domain.Employee;
+import org.apache.http.auth.AuthSchemeProvider;
 import org.apache.http.auth.AuthScope;
 import org.apache.http.auth.NTCredentials;
 import org.apache.http.client.CredentialsProvider;
+import org.apache.http.client.config.AuthSchemes;
+import org.apache.http.config.Registry;
+import org.apache.http.config.RegistryBuilder;
+import org.apache.http.impl.auth.BasicSchemeFactory;
+import org.apache.http.impl.auth.NTLMSchemeFactory;
 import org.apache.http.impl.client.BasicCredentialsProvider;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClientBuilder;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.context.annotation.Profile;
 import org.springframework.core.ParameterizedTypeReference;
@@ -25,10 +33,10 @@ import static java.util.stream.Collectors.toList;
 import static org.springframework.http.HttpMethod.GET;
 
 @Service
-@Profile("prod")
+@Profile({"prod", "staging"})
 public class RemoteInsightEmployeeService implements InsightEmployeeService {
-
     private final RestTemplate restTemplate;
+    private Logger logger = LoggerFactory.getLogger(RemoteInsightEmployeeService.class);
 
     public RemoteInsightEmployeeService(RestTemplateBuilder restTemplateBuilder, InsightProperties insightProperties) {
         this.restTemplate = restTemplateBuilder
@@ -37,10 +45,21 @@ public class RemoteInsightEmployeeService implements InsightEmployeeService {
 
         String user = insightProperties.getAuthentication().getUsername();
         String password = insightProperties.getAuthentication().getPassword();
+
+        logger.info("Authenticating on API {} with {}:", insightProperties.getUrl(), user);
+
         CredentialsProvider credentialsProvider = new BasicCredentialsProvider();
         credentialsProvider.setCredentials(AuthScope.ANY, new NTCredentials(user, password, null, null));
 
-        CloseableHttpClient httpclient = HttpClientBuilder.create().setDefaultCredentialsProvider(credentialsProvider).build();
+        Registry<AuthSchemeProvider> authSchemeRegistry = RegistryBuilder.<AuthSchemeProvider>create()
+                .register(AuthSchemes.NTLM, new NTLMSchemeFactory())
+                .register(AuthSchemes.BASIC, new BasicSchemeFactory())
+                .build();
+
+        CloseableHttpClient httpclient = HttpClientBuilder.create()
+                .setDefaultCredentialsProvider(credentialsProvider)
+                .setDefaultAuthSchemeRegistry(authSchemeRegistry)
+                .build();
 
         this.restTemplate.setRequestFactory(new HttpComponentsClientHttpRequestFactory(httpclient));
 
