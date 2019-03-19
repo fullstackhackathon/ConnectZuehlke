@@ -1,0 +1,10 @@
+<h2>A list of all Zühlke Customers</h2>
+
+<mat-form-field>
+  <input matInput [(ngModel)]="searchQuery" placeholder="Type something to search">
+</mat-form-field>
+
+<mat-list data-id="customer-list">
+  <app-customer *ngFor="let customer of customers | search:'name,street,city,country':searchQuery"
+                [customer]="customer"></app-customer>
+</mat-list>
