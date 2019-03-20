@@ -1,7 +1,7 @@
 import {HttpErrorResponse, HttpEvent, HttpHandler, HttpInterceptor, HttpRequest} from '@angular/common/http';
-import {Injectable} from "@angular/core"
-import {Observable, of} from "rxjs";
-import {catchError} from "rxjs/operators";
+import {Injectable} from '@angular/core';
+import {Observable, of} from 'rxjs';
+import {catchError} from 'rxjs/operators';
 
 import {MatSnackBar} from '@angular/material';
 
@@ -21,7 +21,7 @@ export class ErrorRequestInterceptor implements HttpInterceptor {
       catchError((err: any) => {
         if (err instanceof HttpErrorResponse) {
           try {
-            this.snackBar.open(err.error.title + ": " + err.error.detail, 'close', {
+            this.snackBar.open(`${err.error.title}: ${err.error.detail}`, 'close', {
               duration: this.MAX_DURATION_FOR_ERROR_MESSAGE_MS
             });
           } catch (e) {
@@ -29,7 +29,6 @@ export class ErrorRequestInterceptor implements HttpInterceptor {
               duration: this.MAX_DURATION_FOR_ERROR_MESSAGE_MS
             });
           }
-          //log error
         }
         return of(err);
       }));
