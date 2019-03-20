@@ -4,6 +4,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
+import java.net.UnknownHostException;
+
 import static org.springframework.http.HttpStatus.BAD_REQUEST;
 import static org.springframework.http.HttpStatus.NOT_FOUND;
 
@@ -21,6 +23,15 @@ public class ExceptionHandling {
     public ResponseEntity<ProblemDto> handleApplicationException(ApplicationException exception) {
 
         ProblemDto problem = new ProblemDto(BAD_REQUEST.getReasonPhrase(), BAD_REQUEST.value(), exception.getProblem());
+
+        return ResponseEntity.status(BAD_REQUEST).body(problem);
+    }
+
+    @ExceptionHandler(UnknownHostException.class)
+    public ResponseEntity<ProblemDto> handleUnknownHostException(UnknownHostException exception) {
+
+        ProblemDto problem = new ProblemDto(BAD_REQUEST.getReasonPhrase(), BAD_REQUEST.value(),
+                "Cannot resolve external API endpoint: " + exception.getLocalizedMessage());
 
         return ResponseEntity.status(BAD_REQUEST).body(problem);
     }
