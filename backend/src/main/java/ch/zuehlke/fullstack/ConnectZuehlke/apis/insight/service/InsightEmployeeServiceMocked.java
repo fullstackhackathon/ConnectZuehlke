@@ -3,6 +3,7 @@ package ch.zuehlke.fullstack.ConnectZuehlke.apis.insight.service;
 import ch.zuehlke.fullstack.ConnectZuehlke.domain.Employee;
 import org.apache.commons.io.IOUtils;
 import org.springframework.context.annotation.Profile;
+import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
@@ -26,7 +27,8 @@ public class InsightEmployeeServiceMocked implements InsightEmployeeService {
 
     @Override
     public byte[] getEmployeePicture(int id) throws IOException {
-        return IOUtils.toByteArray(getClass().getResourceAsStream("ch/zuehlke/fullstack/demo_picture.jpg"));
+        ClassPathResource classPathResource = new ClassPathResource("demo_picture.jpg");
+        return IOUtils.toByteArray(classPathResource.getInputStream());
     }
 
     @Override
