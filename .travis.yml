@@ -26,7 +26,7 @@ before_script:
 script:
 - ./gradlew :frontend:lint
 - ./gradlew :frontend:test
-- ./gradlew :backend:test --debug
+- ./gradlew :backend:test
 - ./gradlew :backend:bootJar
 - ./startServer.sh 0.0.1
 - ./gradlew :frontend:e2e
