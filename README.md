@@ -4,7 +4,7 @@
 
 ## Goal
 
-## Idea
+Boilerplate application for the Fullstack Hackathon (20-22. March) with integration to Insight and an Angular / Spring Boot application. Ready to code!
 
 ## Developer guidelines
 
@@ -46,8 +46,9 @@ A proxy configuration will ensure that the frontend can easily connect to the ba
 ```
 Alternatively you can use the provided Run Configurations in IntelliJ:
 
-- ConnectZuehlkeApplication (mocked insight)
-- ConnectZuehlkeApplication (insight)
+- ConnectZuehlkeApplication (mock)
+- ConnectZuehlkeApplication (insight-test)
+- ConnectZuehlkeApplication (insight-prod)
 
 
 
