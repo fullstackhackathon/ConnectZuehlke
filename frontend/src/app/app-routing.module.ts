@@ -5,9 +5,11 @@ import {PageNotFoundComponent} from './page-not-found/page-not-found.component';
 import {HackathonHeadlineComponent} from './hackathon-headline/hackathon-headline.component';
 import {EmployeeDetailComponent} from './employee-detail/employee-detail.component';
 import {MapComponent} from './map/map.component';
+import {CustomerListComponent} from './customer-list/customer-list.component';
 
 const routes: Routes = [
   {path: 'employees', component: EmployeeListComponent},
+  {path: 'customers', component: CustomerListComponent},
   {path: 'employee/:code', component: EmployeeDetailComponent},
   {path: 'welcome', component: HackathonHeadlineComponent},
   {path: 'map', component: MapComponent},
