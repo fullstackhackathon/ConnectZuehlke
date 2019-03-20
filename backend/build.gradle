@@ -1,10 +1,30 @@
 plugins { id 'java' }
 plugins { id 'org.springframework.boot' version '2.1.2.RELEASE' }
 plugins { id 'io.spring.dependency-management' version '1.0.6.RELEASE' }
+plugins {
+    id 'org.jetbrains.kotlin.plugin.jpa' version '1.2.71'
+    id 'org.jetbrains.kotlin.jvm' version '1.2.71'
+    id 'org.jetbrains.kotlin.plugin.spring' version '1.2.71'
+}
+
+apply plugin: 'kotlin-jpa'
+apply plugin: 'io.spring.dependency-management'
 
 group = 'ch.zuehlke.fullstack'
 version = '0.0.1'
-sourceCompatibility = '1.8'
+sourceCompatibility = 1.8
+compileKotlin {
+    kotlinOptions {
+        freeCompilerArgs = ["-Xjsr305=strict"]
+        jvmTarget = "1.8"
+    }
+}
+compileTestKotlin {
+    kotlinOptions {
+        freeCompilerArgs = ["-Xjsr305=strict"]
+        jvmTarget = "1.8"
+    }
+}
 
 bootJar {
     into('static') {
@@ -21,6 +41,10 @@ dependencies {
 
     implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation 'org.apache.httpcomponents:httpclient'
+
+    implementation 'com.fasterxml.jackson.module:jackson-module-kotlin'
+    implementation 'org.jetbrains.kotlin:kotlin-reflect'
+    implementation 'org.jetbrains.kotlin:kotlin-stdlib-jdk8'
 
     runtimeOnly 'org.springframework.boot:spring-boot-devtools'
     implementation 'commons-io:commons-io:2.6'
