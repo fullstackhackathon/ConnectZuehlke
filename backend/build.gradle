@@ -14,7 +14,7 @@ bootJar {
 bootJar.dependsOn ":frontend:npm_run_dist"
 
 repositories {
-    google()
+    jcenter()
 }
 
 dependencies {

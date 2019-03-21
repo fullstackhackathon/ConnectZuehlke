@@ -1,5 +1,5 @@
 language: java
-sudo: false
+sudo: true
 
 env:
 - SPRING_PROFILES_ACTIVE=ci
