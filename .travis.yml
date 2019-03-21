@@ -1,9 +1,6 @@
 language: java
 sudo: false
 
-install:
-  - true
-
 env:
 - SPRING_PROFILES_ACTIVE=ci
 
