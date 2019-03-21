@@ -10,7 +10,14 @@ public class CurrentProjectDto {
     @JsonProperty("Project")
     private ProjectDto project;
 
+    @JsonProperty("Descriptions")
+    private DescriptionDto description;
+
     public ProjectDto getProject() {
         return project;
+    }
+
+    public DescriptionDto getDescription() {
+        return description;
     }
 }
