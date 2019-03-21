@@ -1,7 +1,6 @@
 export interface Project {
-  id: number;
+  code: string;
   name: string;
   description: string;
-  image: string;
   teamSize: number;
 }

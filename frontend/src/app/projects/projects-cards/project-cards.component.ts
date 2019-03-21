@@ -8,8 +8,9 @@ import {Project} from '../../shared/domain/Project';
 })
 export class ProjectCardsComponent {
   @Input() projects: Project[];
-
   @Output() projectClicked = new EventEmitter();
+
+  public imageSourceUrl = 'https://';
 
   constructor() {
   }

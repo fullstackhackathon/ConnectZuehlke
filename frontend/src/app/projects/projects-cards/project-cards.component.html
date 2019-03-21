@@ -2,19 +2,15 @@
   <mat-card class="project-card" *ngFor="let project of projects" (click)="cardClicked(project.id)">
     <mat-card-header>
       <mat-card-title>{{ project.name }}</mat-card-title>
-      <mat-card-subtitle>{{ project.id }}</mat-card-subtitle>
+      <mat-card-subtitle>{{ project.code }}</mat-card-subtitle>
+      <mat-chip-list>
+        <mat-chip color="primary" selected>{{ project.teamSize }}</mat-chip>
+      </mat-chip-list>
     </mat-card-header>
     <mat-card-content>
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nec iaculis turpis. Sed commodo fermentum enim ac
-        commodo. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Donec nulla
-        sem, pharetra ac posuere id, dictum non arcu. Phasellus eu sapien in dui volutpat porta. Integer mollis consequat
-        leo, sit amet finibus sapien. Nulla eget placerat ex, eu fermentum dui. Curabitur dignissim at turpis id feugiat.
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus cursus et ligula quis ullamcorper.
-        Pellentesque posuere turpis ante, quis porttitor mauris semper eget. Fusce eget magna vitae dui efficitur
-        sollicitudin sit amet ac nisi. Curabitur quis tristique nunc. Vestibulum lobortis magna lobortis egestas consequat.
-        Nullam nulla neque, sollicitudin et dui sed, dictum porta enim.
-      </p>
+      <img defaultImage="assets/project_default.jpg" lazyLoad="/api/projects/{{project.code}}/picture"
+           alt="{{project.name}}">
+      <p>{{ project.description }}</p>
     </mat-card-content>
   </mat-card>
 </div>

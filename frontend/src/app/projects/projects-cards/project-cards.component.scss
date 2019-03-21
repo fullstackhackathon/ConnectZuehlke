@@ -1,8 +1,12 @@
 @import '../../../variables';
 
 .project-card {
-  width: 500px;
-  margin: 10px;
+  max-width: 30em;
+  margin: 1em;
+
+  img {
+    width: 100%;
+  }
 }
 
 .mat-card-header {
