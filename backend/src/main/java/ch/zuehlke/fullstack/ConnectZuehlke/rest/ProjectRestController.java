@@ -32,11 +32,9 @@ public class ProjectRestController {
             "C23043" // CONCORDIA mobile app
     );
     private final InsightProjectService insightProjectService;
-    private final InsightEmployeeService insightEmployeeService;
 
     public ProjectRestController(InsightProjectService insightProjectService, InsightEmployeeService insightEmployeeService) {
         this.insightProjectService = insightProjectService;
-        this.insightEmployeeService = insightEmployeeService;
     }
 
     @GetMapping("")

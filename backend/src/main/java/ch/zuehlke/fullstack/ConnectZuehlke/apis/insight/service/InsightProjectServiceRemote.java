@@ -46,7 +46,9 @@ public class InsightProjectServiceRemote implements InsightProjectService {
         ResponseEntity<ProjectDto> response = this.insightRestTemplate
                 .getForEntity("/projects/" + code, ProjectDto.class);
 
-        return response.getBody().toProject();
+        Project project = response.getBody().toProject();
+        project.setTeamSize(getCurrentEmployeesFor(project).size());
+        return project;
     }
 
     @Override
