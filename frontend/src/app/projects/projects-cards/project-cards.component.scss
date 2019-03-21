@@ -4,6 +4,11 @@
   max-width: 30em;
   margin: 1em;
 
+  &:hover {
+    cursor: pointer;
+    box-shadow: 0.5em 0.5em 0.5em 0 $zuehlke_accent;
+  }
+
   img {
     width: 100%;
   }
@@ -25,4 +30,13 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
+}
+
+.employee-number {
+  display: flex;
+  align-items: center;
+
+  .mat-icon {
+    margin-right: 0.25em
+  }
 }

@@ -3,9 +3,12 @@
     <mat-card-header>
       <mat-card-title>{{ project.name }}</mat-card-title>
       <mat-card-subtitle>{{ project.code }}</mat-card-subtitle>
-      <mat-chip-list>
-        <mat-chip color="primary" selected>{{ project.teamSize }}</mat-chip>
-      </mat-chip-list>
+      <div class="employee-number">
+        <mat-icon>person</mat-icon>
+        <mat-chip-list>
+          <mat-chip color="primary" selected>{{ project.teamSize }}</mat-chip>
+        </mat-chip-list>
+      </div>
     </mat-card-header>
     <mat-card-content>
       <img defaultImage="assets/project_default.jpg" lazyLoad="/api/projects/{{project.code}}/picture"
