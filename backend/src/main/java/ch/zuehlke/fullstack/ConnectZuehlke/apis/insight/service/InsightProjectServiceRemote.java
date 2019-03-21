@@ -1,8 +1,6 @@
 package ch.zuehlke.fullstack.ConnectZuehlke.apis.insight.service;
 
-import ch.zuehlke.fullstack.ConnectZuehlke.apis.insight.dto.CurrentProjectDto;
-import ch.zuehlke.fullstack.ConnectZuehlke.apis.insight.dto.ListDto;
-import ch.zuehlke.fullstack.ConnectZuehlke.apis.insight.dto.ProjectDto;
+import ch.zuehlke.fullstack.ConnectZuehlke.apis.insight.dto.*;
 import ch.zuehlke.fullstack.ConnectZuehlke.domain.Employee;
 import ch.zuehlke.fullstack.ConnectZuehlke.domain.Project;
 import org.slf4j.Logger;
@@ -54,6 +52,18 @@ public class InsightProjectServiceRemote implements InsightProjectService {
                 });
         return response.getBody().stream().map(CurrentProjectDto::getProject)
                 .map(ProjectDto::toProject)
+                .collect(toList());
+    }
+
+    @Override
+    public List<Employee> getCurrentEmployeesFor(Project project) {
+        String queryUrl = "/projects/" + project.getCode() + "/team/current";
+        ResponseEntity<List<TeamMemberDto>> response = this.insightRestTemplate
+                .exchange(queryUrl, GET, null, new ParameterizedTypeReference<List<TeamMemberDto>>() {
+                });
+        return response.getBody().stream()
+                .map(TeamMemberDto::getEmployee)
+                .map(EmployeeDto::toEmployee)
                 .collect(toList());
     }
 }

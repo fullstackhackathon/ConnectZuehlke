@@ -9,4 +9,5 @@ public interface InsightProjectService {
     List<Project> getProjects();
     Project getProject(String code);
     List<Project> getCurrentProjectsFor(Employee employee);
+    List<Employee> getCurrentEmployeesFor(Project project);
 }

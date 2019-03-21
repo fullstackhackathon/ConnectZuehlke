@@ -33,4 +33,9 @@ public class InsightProjectServiceMocked implements InsightProjectService{
     public List<Project> getCurrentProjectsFor(Employee employee) {
         return PROJECTS;
     }
+
+    @Override
+    public List<Employee> getCurrentEmployeesFor(Project project) {
+        return InsightEmployeeServiceMocked.EMPLOYEES;
+    }
 }

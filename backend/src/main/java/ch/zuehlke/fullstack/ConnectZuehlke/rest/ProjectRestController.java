@@ -2,6 +2,7 @@ package ch.zuehlke.fullstack.ConnectZuehlke.rest;
 
 import ch.zuehlke.fullstack.ConnectZuehlke.apis.insight.service.InsightEmployeeService;
 import ch.zuehlke.fullstack.ConnectZuehlke.apis.insight.service.InsightProjectService;
+import ch.zuehlke.fullstack.ConnectZuehlke.domain.Employee;
 import ch.zuehlke.fullstack.ConnectZuehlke.domain.Project;
 import org.springframework.web.bind.annotation.*;
 
@@ -47,5 +48,11 @@ public class ProjectRestController {
     @GetMapping("{code}")
     public Project getProject(@PathVariable String code) {
         return insightProjectService.getProject(code);
+    }
+
+    @GetMapping("{code}/team")
+    public List<Employee> getProjectTeam(@PathVariable String code) {
+        Project project = insightProjectService.getProject(code);
+        return insightProjectService.getCurrentEmployeesFor(project);
     }
 }
