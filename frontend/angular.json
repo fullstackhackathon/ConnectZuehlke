@@ -28,7 +28,8 @@
             ],
             "styles": [
               "src/styles.scss",
-              "src/theme.scss"
+              "src/theme.scss",
+              "src/variables.scss"
             ],
             "scripts": [],
             "es5BrowserSupport": true
@@ -87,7 +88,8 @@
             "karmaConfig": "src/karma.conf.js",
             "styles": [
               "src/styles.scss",
-              "src/theme.scss"
+              "src/theme.scss",
+              "src/variables.scss"
             ],
             "scripts": [],
             "assets": [
