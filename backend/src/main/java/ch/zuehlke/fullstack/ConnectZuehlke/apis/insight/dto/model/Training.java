@@ -10,22 +10,17 @@
  * Do not edit the class manually.
  */
 
-package ch.zuehlke.insight.client.model;
+package ch.zuehlke.fullstack.ConnectZuehlke.apis.insight.dto.model;
 
-import java.util.Objects;
-
-import ch.zuehlke.insight.client.model.Attachment;
-import ch.zuehlke.insight.client.model.Skill;
-import ch.zuehlke.insight.client.model.TrainingParticipation;
-import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.v3.oas.annotations.media.Schema;
+import org.threeten.bp.OffsetDateTime;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import org.threeten.bp.OffsetDateTime;
+import java.util.Objects;
 
 /**
  * Training
@@ -561,19 +556,6 @@ public class Training {
         return this;
     }
 
-    /**
-     * Get date
-     *
-     * @return date
-     **/
-    @Schema(description = "")
-    public OffsetDateTime getDate() {
-        return date;
-    }
-
-    public void setDate(OffsetDateTime date) {
-        this.date = date;
-    }
 
     /**
      * Get sortDate

@@ -10,17 +10,14 @@
  * Do not edit the class manually.
  */
 
-package ch.zuehlke.insight.client.model;
-
-import java.util.Objects;
+package ch.zuehlke.fullstack.ConnectZuehlke.apis.insight.dto.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.v3.oas.annotations.media.Schema;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 /**
  * QuizSettings

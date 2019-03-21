@@ -10,29 +10,17 @@
  * Do not edit the class manually.
  */
 
-package ch.zuehlke.insight.client.model;
+package ch.zuehlke.fullstack.ConnectZuehlke.apis.insight.dto.model;
 
-import java.util.Objects;
-
-import ch.zuehlke.insight.client.model.Address;
-import ch.zuehlke.insight.client.model.Assistance;
-import ch.zuehlke.insight.client.model.Company;
-import ch.zuehlke.insight.client.model.EmployeeNotification;
-import ch.zuehlke.insight.client.model.EmployeeProfile;
-import ch.zuehlke.insight.client.model.EmployeeResult;
-import ch.zuehlke.insight.client.model.JobProfile;
-import ch.zuehlke.insight.client.model.Office;
-import ch.zuehlke.insight.client.model.OrganisationUnit;
-import ch.zuehlke.insight.client.model.Qualification;
-import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.v3.oas.annotations.media.Schema;
+import org.threeten.bp.OffsetDateTime;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import org.threeten.bp.OffsetDateTime;
+import java.util.Objects;
 
 /**
  * Employee

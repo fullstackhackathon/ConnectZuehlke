@@ -10,14 +10,14 @@
  * Do not edit the class manually.
  */
 
-package ch.zuehlke.insight.client.model;
+package ch.zuehlke.fullstack.ConnectZuehlke.apis.insight.dto.model;
 
-import java.util.Objects;
-
-import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.v3.oas.annotations.media.Schema;
+
+import java.util.Objects;
 
 /**
  * MediaAssetTag

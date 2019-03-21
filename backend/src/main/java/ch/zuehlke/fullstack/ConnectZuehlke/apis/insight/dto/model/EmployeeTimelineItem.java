@@ -10,22 +10,17 @@
  * Do not edit the class manually.
  */
 
-package ch.zuehlke.insight.client.model;
+package ch.zuehlke.fullstack.ConnectZuehlke.apis.insight.dto.model;
 
-import java.util.Objects;
-
-import ch.zuehlke.insight.client.model.Employee;
-import ch.zuehlke.insight.client.model.EmployeeTimelineItem;
-import ch.zuehlke.insight.client.model.Project;
-import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.v3.oas.annotations.media.Schema;
+import org.threeten.bp.OffsetDateTime;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import org.threeten.bp.OffsetDateTime;
+import java.util.Objects;
 
 /**
  * EmployeeTimelineItem

@@ -10,31 +10,17 @@
  * Do not edit the class manually.
  */
 
-package ch.zuehlke.insight.client.model;
+package ch.zuehlke.fullstack.ConnectZuehlke.apis.insight.dto.model;
 
-import java.util.Objects;
-
-import ch.zuehlke.insight.client.model.AssetAssetLink;
-import ch.zuehlke.insight.client.model.AssetBudgetPhase;
-import ch.zuehlke.insight.client.model.AssetEmployeeLink;
-import ch.zuehlke.insight.client.model.AssetProjectLink;
-import ch.zuehlke.insight.client.model.AssetSolutionLink;
-import ch.zuehlke.insight.client.model.Capability;
-import ch.zuehlke.insight.client.model.Deliverable;
-import ch.zuehlke.insight.client.model.Employee;
-import ch.zuehlke.insight.client.model.OrganisationUnit;
-import ch.zuehlke.insight.client.model.Project;
-import ch.zuehlke.insight.client.model.SkillCategory;
-import ch.zuehlke.insight.client.model.Tag;
-import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.v3.oas.annotations.media.Schema;
+import org.threeten.bp.OffsetDateTime;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import org.threeten.bp.OffsetDateTime;
+import java.util.Objects;
 
 /**
  * Tag
@@ -1481,9 +1467,9 @@ public class Tag {
         _1("1"),
         _2("2");
 
-        private Integer value;
+        private String value;
 
-        ProfilesEnum(Integer value) {
+        ProfilesEnum(String value) {
             this.value = value;
         }
 
@@ -1498,7 +1484,7 @@ public class Tag {
         }
 
         @JsonValue
-        public Integer getValue() {
+        public String getValue() {
             return value;
         }
 

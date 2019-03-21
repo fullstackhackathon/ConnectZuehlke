@@ -10,29 +10,17 @@
  * Do not edit the class manually.
  */
 
-package ch.zuehlke.insight.client.model;
+package ch.zuehlke.fullstack.ConnectZuehlke.apis.insight.dto.model;
 
-import java.util.Objects;
-
-import ch.zuehlke.insight.client.model.Contact;
-import ch.zuehlke.insight.client.model.Customer;
-import ch.zuehlke.insight.client.model.CustomerJourney;
-import ch.zuehlke.insight.client.model.Document;
-import ch.zuehlke.insight.client.model.EmployeeResult;
-import ch.zuehlke.insight.client.model.LessonLearned;
-import ch.zuehlke.insight.client.model.MarketingMaterial;
-import ch.zuehlke.insight.client.model.Offering;
-import ch.zuehlke.insight.client.model.ProjectPhase;
-import ch.zuehlke.insight.client.model.SkillUsage;
-import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.v3.oas.annotations.media.Schema;
+import org.threeten.bp.OffsetDateTime;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import org.threeten.bp.OffsetDateTime;
+import java.util.Objects;
 
 /**
  * Project
@@ -1907,9 +1895,9 @@ public class Project {
         _40("40"),
         _99("99");
 
-        private Integer value;
+        private String value;
 
-        SalesStatesEnum(Integer value) {
+        SalesStatesEnum(String value) {
             this.value = value;
         }
 
@@ -1924,7 +1912,7 @@ public class Project {
         }
 
         @JsonValue
-        public Integer getValue() {
+        public String getValue() {
             return value;
         }
 
