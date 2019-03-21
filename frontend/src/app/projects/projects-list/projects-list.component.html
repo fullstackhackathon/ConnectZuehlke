@@ -5,10 +5,6 @@
     <input matInput [(ngModel)]="searchQuery" placeholder="Type something to search">
   </mat-form-field>
 
-  <mat-list data-id="project-list">
-    <mat-list-item *ngFor="let project of (projects | async) | search:'name':searchQuery">
-      <p>{{ project.id }} - {{ project.name }}</p>
-    </mat-list-item>
-  </mat-list>
+  <app-project-cards [projects]="(projects | async) | search:'name':searchQuery"></app-project-cards>
 </div>
 
