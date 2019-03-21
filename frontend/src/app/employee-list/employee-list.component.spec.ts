@@ -2,8 +2,8 @@ import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
 import {EmployeeListComponent} from './employee-list.component';
 import {FormsModule} from '@angular/forms';
-import {SearchPipe} from '../search.pipe';
-import {EmployeeService} from '../employee.service';
+import {SearchPipe} from '../shared/pipes/search.pipe';
+import {EmployeeService} from '../core/services/employee.service';
 import {EmployeeServiceMock} from './employee.service-mock';
 import {By} from '@angular/platform-browser';
 import {DebugElement} from '@angular/core';

@@ -2,7 +2,7 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable, of} from 'rxjs';
 import {catchError} from 'rxjs/operators';
-import {Customer} from '../domain/Customer';
+import {Customer} from '../shared/domain/Customer';
 
 @Injectable({
   providedIn: 'root'

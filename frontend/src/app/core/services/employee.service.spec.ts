@@ -2,8 +2,8 @@ import {TestBed} from '@angular/core/testing';
 
 import {EmployeeService} from './employee.service';
 import {HttpClientTestingModule, HttpTestingController} from '@angular/common/http/testing';
-import {Employee} from './domain/Employee';
-import {EMPLOYEES} from './employee-list/employee.service-mock';
+import {Employee} from '../../shared/domain/Employee';
+import {EMPLOYEES} from '../../employee-list/employee.service-mock';
 
 describe('EmployeeService', () => {
   let httpMock: HttpTestingController;
