@@ -25,6 +25,8 @@ dependencies {
     implementation 'org.apache.httpcomponents:httpclient'
     implementation 'commons-io:commons-io:2.6'
 
+    runtimeOnly 'org.springframework.boot:spring-boot-devtools'
+
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     testImplementation 'org.springframework.security:spring-security-test'
 }
