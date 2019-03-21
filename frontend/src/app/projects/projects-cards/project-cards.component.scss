@@ -1,0 +1,18 @@
+.project-card {
+  width: 500px;
+  margin: 10px;
+}
+
+.mat-card-title {
+  color: #985B9C;
+}
+
+.mat-card-subtitle {
+  color: #FF9900;
+}
+
+.container{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
