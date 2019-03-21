@@ -3,10 +3,20 @@ package ch.zuehlke.fullstack.ConnectZuehlke.domain;
 public class Project {
     private String code;
     private String name;
+    private String description;
 
-    public Project(String code, String name) {
+    public Project(String code, String name, String description) {
         this.code = code;
         this.name = name;
+        this.description = description;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public String getCode() {

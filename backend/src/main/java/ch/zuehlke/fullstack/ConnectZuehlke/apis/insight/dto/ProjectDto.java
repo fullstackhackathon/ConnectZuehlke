@@ -12,6 +12,8 @@ public class ProjectDto {
     private String code;
     @JsonProperty("Name")
     private String name;
+    @JsonProperty("Description")
+    private String description;
 
     public String getCode() {
         return code;
@@ -21,10 +23,15 @@ public class ProjectDto {
         return name;
     }
 
+    public String getDescription() {
+        return description;
+    }
+
     public Project toProject() {
         return new Project(
                 getCode(),
-                getName()
+                getName(),
+                getDescription()
         );
     }
 

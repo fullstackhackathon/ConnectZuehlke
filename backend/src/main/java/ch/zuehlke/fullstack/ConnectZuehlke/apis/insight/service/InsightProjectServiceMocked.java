@@ -14,9 +14,9 @@ import static java.util.Arrays.asList;
 public class InsightProjectServiceMocked implements InsightProjectService{
 
     public static final List<Project> PROJECTS = asList(
-            new Project("1", "Ergon"),
-            new Project("2", "iTrain"),
-            new Project("3", "SwissLife")
+            new Project("1", "Ergon", "some description"),
+            new Project("2", "iTrain", "blabla"),
+            new Project("3", "SwissLife", "some desc")
     );
 
     @Override

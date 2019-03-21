@@ -6,6 +6,7 @@ import ch.zuehlke.fullstack.ConnectZuehlke.domain.Project;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -13,6 +14,20 @@ import java.util.stream.Collectors;
 @RestController
 @RequestMapping("/api/projects")
 public class ProjectRestController {
+    private static final List<String> PROJECTS = Arrays.asList(
+            "C23438", // SNB PRIMA
+            "C23439", // SNB EASYR
+            "C23440", // SNB ESIP
+            "C22520", // SCS COMS
+            "C22520", // SCS IAM
+            "C23719", // SCS P2S
+            "C23782", // VONTOBEL sky
+            "C23781", // VONTOBEL RM
+            "C23410", // SBB PRED MAINT
+            "C23226", // SBB ETR610
+            "C19834", // SBB automat
+            "C23043" // CONCORDIA mobile app
+    );
     private final InsightProjectService insightProjectService;
     private final InsightEmployeeService insightEmployeeService;
 
@@ -23,17 +38,14 @@ public class ProjectRestController {
 
     @GetMapping("")
     public List<Project> getProjects() {
-        return insightEmployeeService
-                .getEmployees()
-                .stream()
-                .limit(10)
-                .flatMap(employee -> insightProjectService.getCurrentProjectsFor(employee).stream())
-                .distinct()
+        return PROJECTS.stream()
+                .map(insightProjectService::getProject)
                 .collect(Collectors.toList());
     }
 
-    @GetMapping("{id}")
-    public Project getProject(@RequestParam String code) {
+
+    @GetMapping("{code}")
+    public Project getProject(@PathVariable String code) {
         return insightProjectService.getProject(code);
     }
 }
