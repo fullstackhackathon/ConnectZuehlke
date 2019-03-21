@@ -10,12 +10,7 @@ export class ProjectCardsComponent {
   @Input() projects: Project[];
   @Output() projectClicked = new EventEmitter();
 
-  public imageSourceUrl = 'https://';
-
-  constructor() {
-  }
-
-  cardClicked(projectId: string) {
+  public cardClicked(projectId: string): void {
     this.projectClicked.emit(projectId);
   }
 }

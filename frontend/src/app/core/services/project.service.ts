@@ -1,71 +1,42 @@
 import {Injectable} from '@angular/core';
 import {Observable, of} from 'rxjs';
 import {Project} from '../../shared/domain/Project';
+import {HttpClient} from "@angular/common/http";
+import {catchError} from "rxjs/operators";
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProjectService {
 
-  public getProjects(): Observable<Project[]> {
-    return of<Project[]>(
-      [
-        {
-          code: 'c1234',
-          name: 'Project 1',
-          description: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt' +
-            ' ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et' +
-            ' ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum' +
-            ' dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore' +
-            ' magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet' +
-            ' clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.',
-          teamSize: 3
-        },
-        {
-          code: 'c4554',
-          name: 'Test 2',
-          description: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt' +
-            ' ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et' +
-            ' ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum' +
-            ' dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore' +
-            ' magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet' +
-            ' clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.',
-          teamSize: 2
-        },
-        {
-          code: 'c23134',
-          name: 'Amazing 3',
-          description: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt' +
-            ' ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et' +
-            ' ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum' +
-            ' dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore' +
-            ' magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet' +
-            ' clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.',
-          teamSize: 10
-        },
-        {
-          code: 'q1234',
-          name: 'Beer 4',
-          description: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt' +
-            ' ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et' +
-            ' ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum' +
-            ' dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore' +
-            ' magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet' +
-            ' clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.',
-          teamSize: 6
-        },
-        {
-          code: 'q123456',
-          name: 'Pizza 5',
-          description: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt' +
-            ' ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et' +
-            ' ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum' +
-            ' dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore' +
-            ' magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet' +
-            ' clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.',
-          teamSize: 8
-        }
-      ]
-    );
+  constructor(private http: HttpClient){}
+
+  public getAllProjects(): Observable<Project[]> {
+    return this.http.get<Project[]>('/api/projects')
+      .pipe(catchError(this.handleError('getAllProjects', [])));
+  }
+
+  /**
+   * Handle Http operation that failed.
+   * Let the app continue.
+   * @param operation - name of the operation that failed
+   * @param result - optional value to return as the observable result
+   */
+  private handleError<T>(operation = 'operation', result?: T) {
+    return (error: any): Observable<T> => {
+
+      // TODO: send the error to remote logging infrastructure
+      console.error(error); // log to console instead
+
+      // TODO: better job of transforming error for user consumption
+      this.log(`${operation} failed: ${error.message}`);
+
+      // Let the app keep running by returning an empty result.
+      return of(result as T);
+    };
+  }
+
+  private log(s: string) {
+    console.log(`${this}: ${s}`);
   }
 }
