@@ -7,12 +7,16 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.Profile;
 import org.springframework.core.ParameterizedTypeReference;
-import org.springframework.http.ResponseEntity;
+import org.springframework.http.*;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
+import java.io.IOException;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
+import static java.util.Collections.singletonList;
 import static java.util.stream.Collectors.toList;
 import static org.springframework.http.HttpMethod.GET;
 
@@ -65,5 +69,20 @@ public class InsightProjectServiceRemote implements InsightProjectService {
                 .map(TeamMemberDto::getEmployee)
                 .map(EmployeeDto::toEmployee)
                 .collect(toList());
+    }
+
+    @Override
+    public byte[] getProjectPicture(String projectCode) throws IOException {
+        HttpHeaders headers = new HttpHeaders();
+        headers.setAccept(singletonList(MediaType.APPLICATION_OCTET_STREAM));
+
+        HttpEntity<String> entity = new HttpEntity<>(headers);
+
+        ResponseEntity<byte[]> response = this.insightRestTemplate
+                .exchange("/projects/" + projectCode + "/picture", GET, entity, byte[].class, "1");
+        if (response.getStatusCode() == HttpStatus.OK) {
+            return response.getBody();
+        }
+        throw new IllegalStateException("Status code was not 200");
     }
 }

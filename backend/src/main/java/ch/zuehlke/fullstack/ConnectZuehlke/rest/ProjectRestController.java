@@ -4,8 +4,10 @@ import ch.zuehlke.fullstack.ConnectZuehlke.apis.insight.service.InsightEmployeeS
 import ch.zuehlke.fullstack.ConnectZuehlke.apis.insight.service.InsightProjectService;
 import ch.zuehlke.fullstack.ConnectZuehlke.domain.Employee;
 import ch.zuehlke.fullstack.ConnectZuehlke.domain.Project;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -54,5 +56,13 @@ public class ProjectRestController {
     public List<Employee> getProjectTeam(@PathVariable String code) {
         Project project = insightProjectService.getProject(code);
         return insightProjectService.getCurrentEmployeesFor(project);
+    }
+
+    @GetMapping(value = "{code}/picture",
+            produces = MediaType.IMAGE_JPEG_VALUE
+    )
+    public @ResponseBody
+    byte[] getProjectPicture(@PathVariable String code) throws IOException {
+        return insightProjectService.getProjectPicture(code);
     }
 }
