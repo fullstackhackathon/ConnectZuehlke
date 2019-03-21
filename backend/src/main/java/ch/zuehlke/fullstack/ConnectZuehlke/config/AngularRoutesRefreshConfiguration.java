@@ -9,7 +9,7 @@ import org.springframework.web.servlet.ModelAndView;
 import java.util.Collections;
 
 @Configuration
-public class GlobalSpringConfiguration {
+public class AngularRoutesRefreshConfiguration {
 
     // Make angular html 5 routing work
     @Bean
