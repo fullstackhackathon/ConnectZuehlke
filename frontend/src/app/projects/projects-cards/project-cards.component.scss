@@ -1,14 +1,20 @@
+@import "../../../variables";
+
 .project-card {
   width: 500px;
   margin: 10px;
 }
 
+.mat-card-header {
+  justify-content: space-between;
+}
+
 .mat-card-title {
-  color: #985B9C;
+  color: $zuehlke_primary;
 }
 
 .mat-card-subtitle {
-  color: #FF9900;
+  color: $zuehlke_accent;
 }
 
 .container{
