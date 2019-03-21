@@ -8,6 +8,10 @@ import {MapComponent} from './map/map.component';
 import {CustomerListComponent} from './customer-list/customer-list.component';
 
 const routes: Routes = [
+  {
+    path: 'projects',
+    loadChildren: './projects/projects.module#ProjectsModule'
+  },
   {path: 'employees', component: EmployeeListComponent},
   {path: 'customers', component: CustomerListComponent},
   {path: 'employee/:code', component: EmployeeDetailComponent},

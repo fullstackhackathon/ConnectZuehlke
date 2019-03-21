@@ -1,9 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {Observable} from 'rxjs';
-import {Employee} from '../domain/Employee';
+import {Employee} from '../shared/domain/Employee';
 import {switchMap} from 'rxjs/operators';
 import {ActivatedRoute, ParamMap, Router} from '@angular/router';
-import {EmployeeService} from '../employee.service';
+import {EmployeeService} from '../core/services/employee.service';
 
 @Component({
   selector: 'app-employee-detail',

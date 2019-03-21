@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {GeocodeService} from '../geocode.service';
+import {GeocodeService} from '../core/services/geocode.service';
 
 @Component({
   selector: 'app-map',
