@@ -32,6 +32,8 @@ dependencies {
     testImplementation 'org.springframework.security:spring-security-test'
 
     compile "io.swagger.core.v3:swagger-annotations:2.0.0"
+    compile "com.github.joschi.jackson:jackson-datatype-threetenbp:2.4.1"
+
     compile "org.threeten:threetenbp:0.7.2"
     compile "com.brsanthu:migbase64:2.2"
 
