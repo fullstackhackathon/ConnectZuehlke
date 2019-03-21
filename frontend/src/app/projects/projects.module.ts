@@ -6,7 +6,7 @@ import {ProjectsListComponent} from './projects-list/projects-list.component';
 import {MatChipsModule, MatFormFieldModule, MatInputModule, MatListModule} from '@angular/material';
 import {FormsModule} from '@angular/forms';
 import {SharedModule} from '../shared/shared.module';
-import { ProjectCardsComponent } from './projects-cards/project-cards.component';
+import {ProjectCardsComponent} from './projects-cards/project-cards.component';
 import {MatCardModule} from '@angular/material/card';
 import {intersectionObserverPreset, LazyLoadImageModule} from 'ng-lazyload-image';
 
