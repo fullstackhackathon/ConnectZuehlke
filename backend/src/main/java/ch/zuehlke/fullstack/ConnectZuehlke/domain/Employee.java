@@ -21,7 +21,7 @@ public class Employee {
                 .firstName(firstName)
                 .lastName(lastName)
                 .id(id)
-                .code(code)
+                .code(code.toLowerCase())
                 .build();
     }
 }

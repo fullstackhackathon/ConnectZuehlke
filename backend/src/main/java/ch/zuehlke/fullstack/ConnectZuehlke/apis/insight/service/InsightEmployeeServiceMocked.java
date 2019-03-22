@@ -16,9 +16,9 @@ import static java.util.Arrays.asList;
 public class InsightEmployeeServiceMocked implements InsightEmployeeService {
 
     public static final List<Employee> EMPLOYEES = asList(
-            new Employee("Klaus", "Mustermann", 1, "kmu"),
-            new Employee("Magda", "Müller", 2, "mmu"),
-            new Employee("Kurt", "Peters", 3, "kpe")
+            Employee.builder().firstName("Klaus").lastName("Mustermann").id(1).code("kmu").build(),
+            Employee.builder().firstName("Magda").lastName("Müller").id(2).code("mam").build(),
+            Employee.builder().firstName("Kurs").lastName("Peters").id(3).code("kpe").build()
     );
 
     public List<Employee> getEmployees() {
@@ -33,6 +33,9 @@ public class InsightEmployeeServiceMocked implements InsightEmployeeService {
 
     @Override
     public Employee getEmployee(String code) {
-        return EMPLOYEES.stream().filter(employee -> employee.getCode().equals(code)).findFirst().orElse(null);
+        return EMPLOYEES.stream()
+                .filter(employee -> employee.getCode().equals(code))
+                .findFirst()
+                .orElse(null);
     }
 }
