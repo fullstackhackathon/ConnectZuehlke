@@ -28,7 +28,12 @@ public class EmployeeDto {
     }
 
     public Employee toEmployee() {
-        return new Employee(getFirstName(), getLastName(), getId(), getCode());
+        return Employee.builder()
+                .firstName(getFirstName())
+                .lastName(getLastName())
+                .id(getId())
+                .code(getCode())
+                .build();
     }
 
     private String getCode() {

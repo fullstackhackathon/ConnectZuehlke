@@ -56,17 +56,16 @@ public class CustomerDto {
         return latitude;
     }
 
-
     public Customer toCustomer() {
-        return new Customer(
-                getId(),
-                getName(),
-                getStreet(),
-                getCity(),
-                getCountry(),
-                getZip(),
-                getLongitude(),
-                getLatitude()
-        );
+        return Customer.builder()
+                .id(getId())
+                .name(getName())
+                .street(getStreet())
+                .city(getCity())
+                .country(getCountry())
+                .zip(getZip())
+                .longitude(getLongitude())
+                .latitude(getLatitude())
+                .build();
     }
 }
